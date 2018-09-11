@@ -157,11 +157,11 @@ def main(args):
                 model, im, None, timers=timers
             )
 
-#            result_file = os.path.join(args.output_dir, im_basename + '_bbox.pkl')
-#            with open(result_file, 'wb') as f:
-#                boxes, _, _, _= vis_utils.convert_from_cls_format(cls_boxes, cls_segms, cls_keyps)
+            result_file = os.path.join(args.output_dir, im_basename + '_bbox.pkl')
+            with open(result_file, 'wb') as f:
+                boxes, _, _, _= vis_utils.convert_from_cls_format(cls_boxes, cls_segms, cls_keyps)
 #                print(boxes.shape)
-#                pickle.dump(cls_boxes, f)
+                pickle.dump(cls_boxes, f)
 
         logger.info('Inference time: {:.3f}s'.format(time.time() - t))
         for k, v in timers.items():
@@ -172,21 +172,21 @@ def main(args):
                 'rest (caches and auto-tuning need to warm up)'
             )
 
-        vis_utils.vis_one_image(
-            im[:, :, ::-1],  # BGR -> RGB for visualization
-            im_name,
-            args.output_dir,
-            cls_boxes,
-            cls_segms,
-            cls_keyps,
-            dataset=dummy_coco_dataset,
-            box_alpha=0.3,
-            show_class=True,
-            thresh=0.1,
-            kp_thresh=2,
-            ext=args.output_ext,
-            out_when_no_box=args.out_when_no_box
-         )
+#        vis_utils.vis_one_image(
+#            im[:, :, ::-1],  # BGR -> RGB for visualization
+#            im_name,
+#            args.output_dir,
+#            cls_boxes,
+#            cls_segms,
+#            cls_keyps,
+#            dataset=dummy_coco_dataset,
+#            box_alpha=0.3,
+#            show_class=True,
+#            thresh=0.1,
+#            kp_thresh=2,
+#            ext=args.output_ext,
+#            out_when_no_box=args.out_when_no_box
+#         )
 
 
 
